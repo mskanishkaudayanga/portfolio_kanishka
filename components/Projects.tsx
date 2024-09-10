@@ -1,9 +1,8 @@
 
 "use client";
 import React from 'react'
-import Image from "../../public/logo.png";
 import { DirectionAwareHover } from './ui/direction-aware-hover';
-import { FloatingDock } from "@/components/ui/floating-dock";
+import { FloatingDock } from "./ui/floating-dock";
 import { Modal, ModalTrigger } from './ui/animated-modal';
 import Head from 'next/head';
 
@@ -96,7 +95,7 @@ export default function Projects({
         <div className="w-full h-auto bg-zinc-900 flex flex-col justify-center rounded-xl  items-center p-2 sm:p-4">
          
           <div className="w-full h-auto flex flex-col justify-center items-center mt-2 sm:mt-5">
-            <DirectionAwareHover imageUrl={Image.src} className='p-0'>
+            <DirectionAwareHover imageUrl={"/logo.png"} className='p-0'>
               <p className="font-bold text-sm sm:text-base md:text-lg"></p>
               <p className="font-normal text-xs sm:text-sm"></p>
             </DirectionAwareHover>

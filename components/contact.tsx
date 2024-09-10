@@ -3,8 +3,8 @@ import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 
 type ContactProps = {
-  darklogo: StaticImageData;
-  whitelogo: StaticImageData;
+  darklogo: string;
+  whitelogo: string;
   name: string;
 };
 
@@ -19,7 +19,7 @@ export default function Contact({ darklogo, whitelogo, name }: ContactProps) {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="flex justify-center items-center w-full">
-          <Image
+          <Image width={100} height={100}
             src={isHovered ? whitelogo : darklogo}
             alt="logo"
             className="w-[100px] h-auto"

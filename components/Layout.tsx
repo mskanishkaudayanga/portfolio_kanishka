@@ -2,24 +2,24 @@
 import React from 'react';
 import Hero from './Hero';
 import { FloatingNav } from './ui/floating-navbar';
-import { navItems } from '@/data';
+import { navItems } from '../data';
 import Projects from './Projects';
 import Technology from './technology';
 import Contact from './contact';
-import blackCoder from '../../public/coding.png'
-import whitecoder from '../../public/coding-white.png'
-import mobileAppWhite from '../../public/mobile-development (1).png'
-import mobileAppBlack from '../../public/mobile-development.png'
+// import blackCoder from ''
+// import whitecoder from '/coding-white.png'
+import mobileAppWhite from '/mobile-development (1).png'
+import mobileAppBlack from '/mobile-development.png'
 import { title } from 'process';
 import { IconExchange } from '@tabler/icons-react';
-import aceternity from '../../public/fontEnd/aceternity_ui_gnplu8.png'
-import react from '../../public/fontEnd/reactjs_j0rfco.svg'
-import nextjs from '../../public/fontEnd/nextjs_wma0tl.svg'
-import tailwindcss from '../../public/fontEnd/tailwind_snl2f3.svg'
-import shadcn from '../../public/fontEnd/shadcn_dz9mcl.svg'
-import css from '../../public/fontEnd/css_ktacoo.svg'
-import html from '../../public/fontEnd/html_rhj2fd.svg'
-import antdesign from '../../public/fontEnd/antdesign_ux9k4i.svg'
+import aceternity from '/fontEnd/aceternity_ui_gnplu8.png'
+import react from '/fontEnd/reactjs_j0rfco.svg'
+import nextjs from '/fontEnd/nextjs_wma0tl.svg'
+import tailwindcss from '/fontEnd/tailwind_snl2f3.svg'
+import shadcn from '/fontEnd/shadcn_dz9mcl.svg'
+import css from '/fontEnd/css_ktacoo.svg'
+import html from '/fontEnd/html_rhj2fd.svg'
+import antdesign from '/fontEnd/antdesign_ux9k4i.svg'
 export default function Layout() {
   const FrontEnd = [
     {
@@ -143,9 +143,9 @@ export default function Layout() {
           data-aos-anchor-placement="center-bottom"
           className="flex flex-wrap justify-center gap-10 items-center w-full"
         >
-          <Contact darklogo={blackCoder} whitelogo={whitecoder} name='Web Developer' />
-          <Contact darklogo={mobileAppWhite} whitelogo={mobileAppBlack} name='App Developer' />
-          <Contact darklogo={blackCoder} whitelogo={whitecoder} name='Web Designer' />
+          <Contact darklogo='/coding.png' whitelogo='/coding-white.png' name='Web Developer' />
+          {/* <Contact darklogo={mobileAppWhite} whitelogo={mobileAppBlack} name='App Developer' />
+          <Contact darklogo={''} whitelogo={whitecoder} name='Web Designer' /> */}
         </div>
       </div>
 

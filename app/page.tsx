@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { database } from '../appwrite/config';
-import Layout from '@/components/Layout';
+import Layout from '../components/Layout';
 
 // Define the type for Projects
 interface ProjectProps {
