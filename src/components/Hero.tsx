@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from 'react';
 import { FloatingNav } from './ui/floating-navbar';
-import icon from '../../public/logo.png'
+
 import { Modal, ModalTrigger } from './ui/animated-modal';
 import 'remixicon/fonts/remixicon.css';
 import { FlipWords } from './ui/flip-words';
-import { TypewriterEffect } from './ui/typewriter-effect';
+
 import { TextGenerateEffect } from './ui/text-generate-effect';
-import { CardBody, CardContainer, CardItem } from './ui/3d-card';
+import { CardContainer, CardItem } from './ui/3d-card';
 import Image from "next/image"
-import blackImage from '../../public/about-black.png'
-import ColorImage from '../../public/about-color.png'
+// import blackImage from '../../public/about-black.png'
+// import ColorImage from '../../public/about-color.png'
 import { HoverEffect } from './ui/card-hover-effect';
 
 export default function Hero() {
@@ -46,7 +46,8 @@ return (
           <div className='w-[5%]'></div>
           <div className='w-[70%] md:w-[40%] flex items-center justify-start'>
             <div className='flex items-center'>
-              <img src={icon.src} alt="icon" className='h-[1.5rem] w-auto md:h-[2rem]' />
+             
+              <Image src='/logo.png' alt="icon" width={50} height={50}/>
             </div>
             <div className='flex items-center ml-2 md:ml-3 data-aos="fade-up"'>
               <p className='text-base md:text-xl font-bold'>Kanishka Udayanga</p>
@@ -101,9 +102,9 @@ return (
         <div className='w-full h-[100vh] flex flex-col md:flex-row items-center justify-center mt-10'>
           <div className='md:w-[50%] w-full h-full bg-black relative'>
           <CardContainer className="w-[80%] h-full">
-          <CardItem translateZ="100" className="w-full mt-4" hoverImageSrc={ColorImage.src}>
+          <CardItem translateZ="100" className="w-full mt-4" hoverImageSrc='/about-color.png'>
             <Image
-              src={blackImage.src}
+              src='/about-black.png' // Use the `src` prop for the image component
               width={1000} // Use numeric values for width and height
               height={600}
               className="h-auto w-full object-cover group-hover/card:shadow-xl"

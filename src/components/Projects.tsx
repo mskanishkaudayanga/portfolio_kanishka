@@ -1,23 +1,9 @@
 
 "use client";
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Image from "../../public/logo.png";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import Link from "next/link";
-import { Meteors } from './ui/meteors';
-import { cn } from '@/lib/utils';
 import { DirectionAwareHover } from './ui/direction-aware-hover';
-
 import { FloatingDock } from "@/components/ui/floating-dock";
-import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconBrandNextjs,
-  IconNewSection,
-  IconTerminal2,
-} from "@tabler/icons-react";
-
 import { Modal, ModalTrigger } from './ui/animated-modal';
 import Head from 'next/head';
 
