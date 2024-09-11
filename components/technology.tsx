@@ -23,12 +23,12 @@ export default function Technology({ people,technologyName }: TechnologyProps) {
       <div 
         data-aos="fade-up"
         data-aos-anchor-placement="center-center"
-        className='w-[300px] md:w-[500px] h-auto flex flex-col justify-center items-center border rounded-xl px-4 py-4'
+        className='w-[300px] md:w-[500px] h-auto flex flex-col justify-center items-center  rounded-xl px-4 py-4'
       >
         <h4  
           data-aos="fade-up"
           data-aos-anchor-placement="center-bottom"
-          className="text-xl font-bold"
+          className="text-xl font-bold mb-2"
         >
    {technologyName}
         </h4>
