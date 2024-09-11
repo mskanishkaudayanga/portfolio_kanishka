@@ -88,7 +88,7 @@ return (
               <a href="https://ui.shadcn.com/"> 
                 <i className="ri-github-fill text-2xl"></i>
               </a>
-              <a href="https://ui.shadcn.com/"> 
+              <a href="mailto:mskanishkaudayanga@gamil.com"> 
                 <i className="ri-mail-send-fill text-2xl"></i>
               </a>
             </div>
