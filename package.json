@@ -13,12 +13,14 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@tabler/icons-react": "^3.14.0",
     "antd": "^5.20.5",
+    "aos": "^2.3.4",
     "appwrite": "^14.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.31",
     "lucide-react": "^0.436.0",
     "next": "14.2.7",
+    "node-appwrite": "^14.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
@@ -31,6 +33,7 @@
     "three": "^0.168.0"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

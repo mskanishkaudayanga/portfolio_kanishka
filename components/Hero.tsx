@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { FloatingNav } from './ui/floating-navbar';
 
 import { Modal, ModalTrigger } from './ui/animated-modal';
@@ -12,13 +12,40 @@ import Image from "next/image"
 // import blackImage from '../../public/about-black.png'
 // import ColorImage from '../../public/about-color.png'
 import { HoverEffect } from './ui/card-hover-effect';
-
+import { getcv } from '../appwrite/cv.actions';
+interface cv{
+  CV:string;
+  link:string;
+}
 export default function Hero() {
   const navItems = [
     { name: "Home", link: "/", icon: <svg width="1.3rem" height="1.3rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)"><path d="M20 20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20ZM11 13V19H13V13H11Z"></path></svg> },
     { name: "Projects", link: "/about", icon:<svg width="1.3rem" height="1.3rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM16.4645 15.5355L20 12L16.4645 8.46447L15.0503 9.87868L17.1716 12L15.0503 14.1213L16.4645 15.5355ZM6.82843 12L8.94975 9.87868L7.53553 8.46447L4 12L7.53553 15.5355L8.94975 14.1213L6.82843 12ZM11.2443 17L14.884 7H12.7557L9.11597 17H11.2443Z"></path></svg>},
     { name: "Contact", link: "/about", icon:  <svg width="1.3rem" height="1.3rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)"><path d="M2 22C2 17.5817 5.58172 14 10 14C14.4183 14 18 17.5817 18 22H2ZM10 13C6.685 13 4 10.315 4 7C4 3.685 6.685 1 10 1C13.315 1 16 3.685 16 7C16 10.315 13.315 13 10 13ZM20 17H24V19H20V17ZM17 12H24V14H17V12ZM19 7H24V9H19V7Z"></path></svg>}
   ];
+      const [cv, setCv] = useState<any[]>([]);
+    const[cvlink,setCvlink] = useState<string>('');
+  useEffect(() => {
+    const flechCv = async () => {
+      const cvData = await getcv();
+      const mappedCv = cvData.documents.map((doc: any) => ({
+        CV: doc.CV,
+        link: doc.link
+      }));
+      setCv(mappedCv);
+        if (mappedCv.length > 0) {
+        setCvlink(mappedCv[0].link); // Set the first CV link
+      }
+    }
+    flechCv();
+    
+  }, []);
+
+ const handleOpenPDF = () => {
+    // Open PDF in a new tab
+    window.open(cvlink, '_blank');
+  };
+  console.log ("cvlink",cvlink)
   const [isHovered, setIsHovered] = useState(false);
   const words = ["Front-End Developer", "Back-End Developer", "Problem Solver", "Web Designer"];
 const aboutme = "I am an IT undergraduate at the University of Moratuwa with a GPA of 3.4 and a last semester GPA of 3.82. I specialize in front-end and back-end web development, with skills in Java, JavaScript, TypeScript, React.js, Next.js, and Node.js. I excel in problem-solving, web application development, and database management. As a team player with strong time management skills, I am eager to learn and take on new challenges. I'm also expanding my knowledge in cloud computing and networking. "
@@ -45,11 +72,11 @@ return (
         <div className='w-full md:h-[100px]  h-[60px] flex flex-row items-center border-b'>
           <div className='w-[5%]'></div>
           <div className='w-[70%] md:w-[40%] flex items-center justify-start'>
-            <div className='flex items-center'>
+            <div className='flex items-center w-10'>
              
-              <Image src='/logo.png' alt="icon" width={50} height={50}/>
+              <Image src='/logonew.png' alt="icon" width={50} height={50}/>
             </div>
-            <div className='flex items-center ml-2 md:ml-3 data-aos="fade-up"'>
+            <div className='flex items-center ml-2 md:ml-3 '>
               <p className='text-base md:text-xl font-bold'>Kanishka Udayanga</p>
             </div>
           </div>
@@ -76,7 +103,7 @@ return (
             </div>
             <span className='text-bold text-3xl md:text-7xl font-extrabold text-zinc-300 font-Montserrat mt-2 '>  <FlipWords words={words} /></span>
             <p className='text-gray-400 text-sm pt-2 '>IT undergraduate at the University of Moratuwa, skilled in front-end and back-end development. </p>
-            <div className='mt-3'>
+            <div className='mt-3 w-auto h-auto'  onClick={handleOpenPDF}>
             <Modal>
             <ModalTrigger className="bg-white dark:bg-black text-black dark:text-white flex justify-center group/modal-btn pt-2 pb-2 pl-4 pr-4">
               <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">

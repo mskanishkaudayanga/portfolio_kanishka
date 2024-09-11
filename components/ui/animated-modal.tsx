@@ -46,6 +46,7 @@ export const ModalTrigger = ({
   children: ReactNode;
   className?: string;
 }) => {
+   
   const { setOpen } = useModal();
   return (
     <button

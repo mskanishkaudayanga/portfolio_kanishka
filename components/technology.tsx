@@ -2,11 +2,11 @@ import { cn } from '../utils/cn'
 import React from 'react'
 import { AnimatedTooltip } from './ui/animated-tooltip';
 
-interface Person {
-  id: number;
-  name: string;
-  designation: string;
-  image: string;
+export interface Person {
+  $id: number;
+Name_project:string;
+  enum: string;
+  link: string;
 }
 
 interface TechnologyProps {
@@ -17,13 +17,13 @@ interface TechnologyProps {
 
 export default function Technology({ people,technologyName }: TechnologyProps) {
   const className = ''; 
-
+  console.log("peopletach",people)
   return (
     <>
       <div 
         data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom"
-        className='w-[300px] md:w-[450px] h-auto flex flex-col justify-start items-start border rounded-xl px-10 py-10'
+        data-aos-anchor-placement="center-center"
+        className='w-[300px] md:w-[500px] h-auto flex flex-col justify-center items-center border rounded-xl px-4 py-4'
       >
         <h4  
           data-aos="fade-up"
@@ -32,7 +32,7 @@ export default function Technology({ people,technologyName }: TechnologyProps) {
         >
    {technologyName}
         </h4>
-        <div className="flex flex-wrap items-center justify-start mt-3 w-full">
+        <div className="flex flex-wrap items-center justify-center mt-2 w-full">
           <AnimatedTooltip items={people} />
         </div>
       </div>

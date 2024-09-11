@@ -20,7 +20,7 @@ export const FloatingDock = ({
   mobileClassName?: string;
 }) => {
   const [isMobile, setIsMobile] = useState(false);
-
+console.log("items",items)
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -51,6 +51,7 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
+ 
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -74,6 +75,7 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: string; href: string }[];
   className?: string;
 }) => {
+ 
   let mouseX = useMotionValue(Infinity);
   return (
     <motion.div
@@ -150,7 +152,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square mr-[-1rem] rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center relative outline-none border-none"
+        className="aspect-square mr-[-1rem] rounded-full bg-zinc-950 dark:bg-neutral-800 flex items-center justify-center relative outline-none border"
       >
         <AnimatePresence>
           {hovered && (
@@ -171,7 +173,7 @@ function IconContainer({
           {/* Display the image with full coverage */}
           <img
             src={icon}
-            alt={title}
+            alt={icon}
             className="w-full h-full object-cover rounded-full"
           />
         </motion.div>

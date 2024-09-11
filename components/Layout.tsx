@@ -1,5 +1,5 @@
 // Import necessary components
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from './Hero';
 import { FloatingNav } from './ui/floating-navbar';
 import { navItems } from '../data';
@@ -19,96 +19,119 @@ import tailwindcss from '/fontEnd/tailwind_snl2f3.svg'
 import shadcn from '/fontEnd/shadcn_dz9mcl.svg'
 import css from '/fontEnd/css_ktacoo.svg'
 import html from '/fontEnd/html_rhj2fd.svg'
-import antdesign from '/fontEnd/antdesign_ux9k4i.svg'
+import { getProjectData } from '../appwrite/project.actions';
+import { getTechnologyData } from '../appwrite/technology.actions';
+import { getcv } from '../appwrite/cv.actions';
+
+interface GroupedTechnologies {
+  frontEnd: any[];
+  backEnd: any[];
+  database: any[];
+  programming: any[];
+  tool: any[];
+  other: any[];
+}
+
+interface ProjectProps {
+  $id: string;
+  name: string;
+  description: string;
+  image: string;
+  git: string;
+  stacks: stacks[];
+}
+
+interface stacks {
+  link: string;
+  Name_project: string;
+  enum: string;
+}
+interface cv{
+  CV:string;
+  link:string;
+}
+    
+
 export default function Layout() {
-  const FrontEnd = [
-    {
-      id: 1,
-      name: "React",
-      designation: "",
-      image: react
-    },
-    {
-      id: 2,
-      name: "Next js",
-      designation: "",
-      image:
-        nextjs},
-    {
-      id: 3,
-      name: "Tailwind CSS",
-      designation: "",
-      image:
-        tailwindcss},
-    {
-      id: 4,
-      name: "Shadcn UI",
-      designation: "",
-      image:
-        shadcn},
-    {
-      id: 5,
-      name: "Aceternity UI",
-      designation: "",
-      image:
-        aceternity},
-    {
-      id: 6,
-      name: "CSS",
-      designation: "",
-      image:
-        css},
-    {
-      id: 7,
-      name: "HTML",
-      designation: "",
-      image:
-        html}, 
-     {
-      id: 8,
-      name: "Ant design",
-      designation: "",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-    },
-  ];
   
+    const [groupedTechnologies, setGroupedTechnologies] = useState<GroupedTechnologies>({
+        frontEnd: [],
+        backEnd: [],
+        database: [],
+        programming: [],
+        tool: [],
+        other: [],
+    });
+    const [projects, setProjects] = useState<ProjectProps[]>([]);
+    const [tech, setTech] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fletchData = async () => {
+      const projectsDetails = await getProjectData();
+      console.log(" console data",projectsDetails);
+      const mappedProjects = projectsDetails.documents.map((doc: any) => ({
+        $id: doc.$id,
+        name: doc.name,
+        description: doc.description,
+        image: doc.image,
+        git: doc.git,
+        stacks: doc.stacks
+      }));
+      setProjects(mappedProjects);
+    }
+      const flechTechnology = async () => {
+      const technologies = await getTechnologyData();
+  const groupedTechnologies = technologies.documents.reduce(
+              (acc: { [key: string]: any }, item) => {
+                const category = item.enum;
+                if (!acc[category]) {
+                  acc[category] = [];
+                }
+                acc[category].push(item);
+                return acc;
+              },
+              {}
+            );
+            setGroupedTechnologies({
+                frontEnd: groupedTechnologies.front || [],
+                backEnd: groupedTechnologies.back || [],
+                database: groupedTechnologies.database || [],
+                programming: groupedTechnologies.programing || [],
+                tool: groupedTechnologies.tool || [],
+                other: groupedTechnologies.others || [],
+            });
+    }
+ 
+    fletchData();
+    flechTechnology();
+  }, []);
+
   return (
     <>
       <Hero/> 
-    
       <div className='w-full flex justify-center items-center my-5 md:my-10'>
        <h2   data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         className="text-3xl font-bold">projects</h2>
       </div>
       <div
-        data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom"
-        className="flex flex-wrap justify-center gap-10 items-center">
-         <Projects
-              name={'kanishka'}
-              description={'udayanaga'}
-              imageUrl={'https://cloud.appwrite.io/v1/storage/buckets/66dadef90030b0f3f7f8/files/66dae0c4003523dee2d9/view?project=66d0c46c0035541cabaf&project=66d0c46c0035541cabaf&mode=admin'}
-              git={'https://cloud.appwrite.io/v1/storage/buckets/66dadef90030b0f3f7f8/files/66dae0c4003523dee2d9/view?project=66d0c46c0035541cabaf&project=66d0c46c0035541cabaf&mode=admin'}
-              links={[
-                {
-                  title: "Changelog",
-                  icon:"https://cloud.appwrite.io/v1/storage/buckets/66dadef90030b0f3f7f8/files/66dae0c4003523dee2d9/view?project=66d0c46c0035541cabaf&project=66d0c46c0035541cabaf&mode=admin",
-                  href: "#",
-                },
-                {
-                  title: "Changelog",
-                  icon:"https://cloud.appwrite.io/v1/storage/buckets/66dadef90030b0f3f7f8/files/66dae0c4003523dee2d9/view?project=66d0c46c0035541cabaf&project=66d0c46c0035541cabaf&mode=admin",
-                  href: "#",
-                },
-                {
-                  title: "Changelog",
-                  icon:"https://cloud.appwrite.io/v1/storage/buckets/66dadef90030b0f3f7f8/files/66dae0c4003523dee2d9/view?project=66d0c46c0035541cabaf&project=66d0c46c0035541cabaf&mode=admin",
-                  href: "#",
-                }
-              ]}
-            />
+        
+        className="flex flex-wrap justify-center gap-10 items-top">
+    {projects.map((project, index) => (
+  <Projects
+    key={index}
+    name={project.name}
+    description={project.description}
+    imageUrl={project.image}
+    git={project.git}
+    links={project.stacks.map((stack) => ({
+      title: stack.Name_project,
+      icon: stack.link,
+      href: "#",
+    }))}
+  />
+))}
+        
 
          
       </div>
@@ -119,12 +142,15 @@ export default function Layout() {
           <div
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-        className="flex flex-wrap justify-center gap-5  items-center">
+        className="flex flex-col justify-center gap-5  items-top">
         
       {/* <Technology/> */}
-      <Technology people={FrontEnd} technologyName="Front_End Developments" />
-      <Technology people={FrontEnd} technologyName="Back_End Developments" />
-      <Technology people={FrontEnd} technologyName="Databases" />
+      <Technology people={groupedTechnologies.frontEnd} technologyName="Front_End Developments" />
+      <Technology people={groupedTechnologies.backEnd} technologyName="Back_End Developments" />
+      <Technology people={groupedTechnologies.database} technologyName="Databases" />
+      <Technology people={groupedTechnologies.programming} technologyName="Programming Language" />
+      <Technology people={groupedTechnologies.tool} technologyName="Tools" />
+
 
     
       </div>
@@ -144,8 +170,8 @@ export default function Layout() {
           className="flex flex-wrap justify-center gap-10 items-center w-full"
         >
           <Contact darklogo='/coding.png' whitelogo='/coding-white.png' name='Web Developer' />
-          {/* <Contact darklogo={mobileAppWhite} whitelogo={mobileAppBlack} name='App Developer' />
-          <Contact darklogo={''} whitelogo={whitecoder} name='Web Designer' /> */}
+          <Contact darklogo='/mobile-development (1).png' whitelogo='/mobile-development.png' name='App Developer' />
+          {/* <Contact darklogo={''} whitelogo={whitecoder} name='Web Designer' /> */}
         </div>
       </div>
 

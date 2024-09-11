@@ -95,21 +95,22 @@ export default function Projects({
         <div className="w-full h-auto bg-zinc-900 flex flex-col justify-center rounded-xl  items-center p-2 sm:p-4">
          
           <div className="w-full h-auto flex flex-col justify-center items-center mt-2 sm:mt-5">
-            <DirectionAwareHover imageUrl={"/logo.png"} className='p-0'>
+            <DirectionAwareHover imageUrl={imageUrl} className='p-0'>
               <p className="font-bold text-sm sm:text-base md:text-lg"></p>
               <p className="font-normal text-xs sm:text-sm"></p>
             </DirectionAwareHover>
           </div>
-          <div className="grid grid-rows-2 w-[90%] mt-6 ">
-            <p className=" w-full row-span-1 text-white text-left pt-1 text-base sm:text-base md:text-xl font-bold">
+          <div className="flex flex-col w-[90%] mt-6 ">
+            <p className=" w-full h-auto  mb-2 row-span-1 text-white text-left pt-1 text-base sm:text-base md:text-xl font-bold">
               {name}
             </p>
-            <p className=" w-full row-span-1 text-zinc-300 text-left text-xs sm:text-xs md:text-base ">
+            <p className=" w-full row-span-1 text-zinc-400 text-left text-xs sm:text-xs md:text-xs ">
              {description}
             </p>
           </div>
           <div className='w-[90%] md:mt-4 mt-2 h-auto md:col-span-2 col-span-1 grid grid-cols-1 md:grid-cols-2 items-center'>
             <div className='flex justify-start'>
+         
               <FloatingDock
                 mobileClassName="w-full"
                 desktopClassName='w-full'
@@ -119,7 +120,7 @@ export default function Projects({
               <Modal>
                 <ModalTrigger className="relative w-auto h-auto text-white flex justify-center group/modal-btn">
                   <span className="bg-none group-hover/modal-btn:translate-x-40 text-center transition duration-500 text-sm">
-                   <a href={imageUrl}>Git Hub Link ⮕</a> 
+                   <a href={'#'}>Git Hub Link ⮕</a> 
                   </span>
                   <div className="bg-none -translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)" width="1.5em" height="1em">
