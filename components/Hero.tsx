@@ -82,10 +82,10 @@ return (
           </div>
           <div className='w-[28%] md:w-[55%] flex flex-row justify-end iems-center '>
            <div className='w-full flex flex-row justify-end items-center gap-5 md:flex md:opacity-1 hidden pr-4'>
-              <a href="https://ui.shadcn.com/"> 
+              <a href="https://www.linkedin.com/in/kanishkaudayanga/"> 
                 <i className="ri-linkedin-box-fill text-2xl"></i>
               </a> 
-              <a href="https://ui.shadcn.com/"> 
+              <a href="https://github.com/mskanishkaudayanga"> 
                 <i className="ri-github-fill text-2xl"></i>
               </a>
               <a href="mailto:mskanishkaudayanga@gamil.com"> 
