@@ -108,8 +108,11 @@ export default function Layout() {
 
   return (
     <>
-      <Hero/> 
-      <div className='w-full flex justify-center items-center my-5 md:my-10'>
+   < div id='section1' className='w-ful'>
+     <Hero/> 
+   </div>
+    
+      <div id='section2' className='w-full flex justify-center items-center my-5 md:my-10'>
        <h2   data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         className="text-3xl font-bold">projects</h2>
@@ -135,7 +138,7 @@ export default function Layout() {
 
          
       </div>
-      <div className='w-full flex flex-col justify-center items-center my-10 md:my-[8.5rem]'>
+      <div  className='w-full flex flex-col justify-center items-center my-10 md:my-[8.5rem]'>
        <h2   data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         className="text-3xl font-bold mb-10">Technology</h2>
