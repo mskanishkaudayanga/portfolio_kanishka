@@ -44,17 +44,17 @@ export const FloatingNav = ({
       <motion.div
         initial={{
           opacity: 1,
-          x: -100,
+          x: 100, // Changed to 100 for the right side
         }}
         animate={{
-          x: visible ? 32 : -10,
+          x: visible ? -10 : 32, // Adjusting for right visibility
           opacity: visible ? 1 : 0,
         }}
         transition={{
           duration: 0.2,
         }}
         className={cn(
-          "fixed z-[5000] top-1/2 left-0 transform -translate-y-1/2 px-5 py-5 rounded-lg border border-black/.1 shadow-[0px_2px3px-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] space-y-6 flex flex-col items-start",
+          "fixed z-[5000] top-1/2 right-0 transform -translate-y-1/2 px-5 py-5 rounded-lg border border-black/.1 shadow-[0px_2px3px-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] space-y-6 flex flex-col items-start",
           className
         )}
         style={{
@@ -73,7 +73,7 @@ export const FloatingNav = ({
             key={idx}
             href={navItem.link}
             className={cn(
-              " relative flex items-center space-x-2 text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-300 hover:text-neutral-500",
+              "relative flex items-center space-x-2 text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-300 hover:text-neutral-500",
               {
                 "justify-center": !expanded,
                 "justify-start": expanded,

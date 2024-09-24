@@ -99,10 +99,10 @@ return (
        className='w-full h-[100vh] flex flex-col md:flex-row justify-center items-center'  >
           <div className='w-full md:w-[50%]  h-[100%] flex flex-col pl-6 md:pl-10 lg:pl:15 items-start justify-center order-2 md:order-1'>
             <div className='w-full flex flex-row justify-start items-center'>
-             <span  className='text-bold text-xl md:text-3xl font-semibold text-zinc-50 font-Montserrat'> Hi I'm</span>   <br/>  
+             <span  className='text-bold text-xl md:text-xl font-semibold text-zinc-50 font-Montserrat'> Hi I'm</span>   <br/>  
               <div className='w-[40%] h-[4px] rounded-md bg-zinc-50 ml-4'></div>
             </div>
-            <span className='text-bold text-3xl md:text-7xl font-extrabold text-zinc-300 font-Montserrat mt-2 '>  <FlipWords words={words} /></span>
+            <span className='text-bold text-3xl md:text-4xl font-extrabold text-zinc-300 font-Montserrat mt-2 '>  <FlipWords words={words} /></span>
             <p className='text-gray-400 text-sm pt-2 '>IT undergraduate at the University of Moratuwa, skilled in front-end and back-end development. </p>
             <div className='mt-3 w-auto h-auto'  onClick={handleOpenPDF}>
             <Modal>
@@ -117,48 +117,53 @@ return (
            </Modal>
           </div>
           </div>
-       <div className='w-full md:w-[50%] h-[100%] order-1 md:order-2 relative'>
+      <div className='w-full md:w-[50%] h-[100%] order-1 md:order-2 relative'>
   <Image
     src={profilepic} // Replace with your image path
     alt="Description of image" // Add appropriate alt text
     layout="fill" // This makes the image fill the parent container
-    objectFit="fit" // This maintains the aspect ratio while covering the entire div
+    objectFit="contain" // Use 'contain' to maintain aspect ratio
     className="rounded-md" // Optional: add any additional styles here
   />
 </div>
-      </div>
-      <div id='section3'  data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom"
-             className='w-full h-auto flex flex-col justify-center items-center mb-2'>
-        <div className='w-full h-100px flex items-center justify-center'>
-          <TextGenerateEffect words='About Me' className='text-bold text-2xl md:text-4xl font-semibold text-white font-Montserrat '/> 
-        </div>
-        <div className='w-full h-[100vh] flex flex-col md:flex-row items-center justify-center mt-10'>
-          <div className='md:w-[50%] w-full h-full bg-black relative'>
-          <CardContainer className="w-[80%] h-full">
-          <CardItem translateZ="100" className="w-full mt-4" hoverImageSrc='/about-color.png'>
-            <Image
-              src='/about-black.png' // Use the `src` prop for the image component
-              width={1000} // Use numeric values for width and height
-              height={600}
-              className="h-auto w-full object-cover group-hover/card:shadow-xl"
-              alt="thumbnail"
-            />
-          </CardItem>
-        </CardContainer>
-          </div>
-          <div  data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom"
-             className='md:w-[50%] w-full h-full px-4 md:px-10 flex flex-col items-center'>
-            <TextGenerateEffect words={aboutme} className='text-zinc-400 md:text-base  text-sm font-light'/>
-            <span>Email:<a href='#' className='text-zinc-300 text-sm font-bold mt-2'>mskanishkaudayanga@gmail.com</a></span>
-          </div>
-        </div>
 
       </div>
-      <div
-            data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom"
+    <div id='section3' data-aos="fade-left"
+     data-aos-anchor-placement="center-left"
+     className='w-full h-auto flex flex-col justify-center items-center mb-2'>
+  <div className='w-full flex items-center justify-center h-auto'>
+    <TextGenerateEffect words='About Me' className='text-bold text-2xl md:text-4xl font-semibold text-white font-Montserrat' />
+  </div>
+  
+  <div className='w-full h-auto flex flex-col md:flex-row items-center justify-center mt-10'>
+    <div className='md:w-[50%] w-full h-auto bg-black relative'>
+      <CardContainer className="w-[80%] h-auto">
+        <CardItem translateZ="100" className="w-full mt-4" hoverImageSrc='/about-color.png'>
+          <Image
+            src='/about-black.png' // Use the `src` prop for the image component
+            width={1000} // Use numeric values for width and height
+            height={600}
+            className="h-auto w-full object-cover group-hover/card:shadow-xl"
+            alt="thumbnail"
+          />
+        </CardItem>
+      </CardContainer>
+    </div>
+    
+    <div data-aos="fade-up"
+         data-aos-anchor-placement="center-bottom"
+         className='md:w-[50%] w-full h-auto px-4 md:px-10 flex flex-col items-center justify-center mt-4 md:mt-0'>
+      <TextGenerateEffect words={aboutme} className='text-zinc-400 md:text-base text-sm font-light  text-center '  />
+      <span>Email: <a href='#' className='text-zinc-300 text-sm font-bold mt-2'>mskanishkaudayanga@gmail.com</a></span>
+    </div>
+  </div>
+</div>
+
+     
+
+       <div
+            data-aos="fade-right"
+            data-aos-anchor-placement="center-right"
             className="mt-5  flex flex-col items-center justify-center"
           >
             <h2  
@@ -169,9 +174,6 @@ return (
               <HoverEffect items={EduData} />
             </div>
           </div>
-
-          {/* Technolohies section */}
-          <div className='w-full '></div>
     </>
   );
 }

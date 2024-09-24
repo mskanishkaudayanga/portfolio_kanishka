@@ -21,8 +21,7 @@ export default function Technology({ people,technologyName }: TechnologyProps) {
   return (
     <>
       <div 
-        data-aos="fade-up"
-        data-aos-anchor-placement="center-center"
+        
         className='w-[300px] md:w-[500px] h-auto flex flex-col justify-center items-center  rounded-xl px-4 py-4'
       >
         <h4  
