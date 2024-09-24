@@ -13,6 +13,7 @@ import Image from "next/image"
 // import ColorImage from '../../public/about-color.png'
 import { HoverEffect } from './ui/card-hover-effect';
 import { getcv } from '../appwrite/cv.actions';
+import profilepic from '../public/profile.jpg'
 interface cv{
   CV:string;
   link:string;
@@ -67,14 +68,12 @@ const EduData = [
 return (
     <>
       <FloatingNav navItems={navItems} />
-      <div className='w-full h-[100vh] flex flex-col'  data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom">
-        <div className='w-full md:h-[100px]  h-[60px] flex flex-row items-center border-b'>
+       <div className='w-full md:h-[100px]  h-[60px] flex flex-row items-center border-b'>
           <div className='w-[5%]'></div>
           <div className='w-[70%] md:w-[40%] flex items-center justify-start'>
             <div className='flex items-center w-10'>
              
-              <Image src='/logonew.png' alt="icon" width={50} height={50}/>
+              <Image src='/logonew.png' alt="icon" width={30} height={30}/>
             </div>
             <div className='flex items-center ml-2 md:ml-3 '>
               <p className='text-base md:text-xl font-bold'>Kanishka Udayanga</p>
@@ -95,7 +94,9 @@ return (
 
           </div>
         </div>
-        <div className='w-full h-[100vh] flex flex-col md:flex-row justify-center items-center'  >
+      <div   data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+       className='w-full h-[100vh] flex flex-col md:flex-row justify-center items-center'  >
           <div className='w-full md:w-[50%]  h-[100%] flex flex-col pl-6 md:pl-10 lg:pl:15 items-start justify-center order-2 md:order-1'>
             <div className='w-full flex flex-row justify-start items-center'>
              <span  className='text-bold text-xl md:text-3xl font-semibold text-zinc-50 font-Montserrat'> Hi I'm</span>   <br/>  
@@ -116,9 +117,15 @@ return (
            </Modal>
           </div>
           </div>
-       
-          <div className='w-full md:w-[50%]  h-[100%] order-1 md:order-2'></div>
-        </div>
+       <div className='w-full md:w-[50%] h-[100%] order-1 md:order-2 relative'>
+  <Image
+    src={profilepic} // Replace with your image path
+    alt="Description of image" // Add appropriate alt text
+    layout="fill" // This makes the image fill the parent container
+    objectFit="fit" // This maintains the aspect ratio while covering the entire div
+    className="rounded-md" // Optional: add any additional styles here
+  />
+</div>
       </div>
       <div id='section3'  data-aos="fade-up"
             data-aos-anchor-placement="center-bottom"
