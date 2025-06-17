@@ -203,7 +203,7 @@ export default function Hero() {
             <CardContainer className="w-[80%] h-auto">
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
-                  src="/about-color.png"
+                  src="/Frame 111.png"
                   width={1000}
                   height={600}
                   className="h-auto w-full object-cover transition-all duration-500 grayscale hover:grayscale-0"
