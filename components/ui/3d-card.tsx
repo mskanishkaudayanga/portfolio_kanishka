@@ -103,7 +103,6 @@ export const CardItem = ({
   rotateX = 0,
   rotateY = 0,
   rotateZ = 0,
-  hoverImageSrc,
   ...rest
 }: {
   as?: React.ElementType;
@@ -115,12 +114,10 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  hoverImageSrc?: string;
   [key: string]: any;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     handleAnimations();
@@ -135,36 +132,17 @@ export const CardItem = ({
     }
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
     <Tag
       ref={ref}
       className={cn("w-fit transition-transform duration-300 ease-out", className)}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       {...rest}
     >
-      {isHovered && hoverImageSrc ? (
-        <Image
-          src={hoverImageSrc}
-          width={1000}
-          height={600}
-          className="h-auto w-full object-cover group-hover/card:shadow-xl"
-          alt="hover-thumbnail"
-        />
-      ) : (
-        children
-      )}
+      {children}
     </Tag>
   );
 };
+
 
 // Create a hook to use the context
 export const useMouseEnter = () => {
